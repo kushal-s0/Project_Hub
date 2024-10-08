@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload {{ file_type.title() }} File</title>
+</head>
+<body>
+    <h1>Upload {{ file_type.title() }} File</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+    <a href="{% url 'view_files' file_type=file_type %}">View Files</a>
+</body>
+</html>

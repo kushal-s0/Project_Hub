@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit {{ file.file.name }}</title>
+</head>
+<body>
+    <h1>Edit File: {{ file.file.name }}</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+    <a href="{% url 'view_files' file_type=file_type %}">Cancel</a>
+</body>
+</html>

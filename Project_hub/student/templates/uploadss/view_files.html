@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View {{ file_type.title() }} Files</title>
+</head>
+<body>
+    <h1>Uploaded {{ file_type.title() }} Files</h1>
+    <ul>
+        {% for file in files %}
+            <li>
+                {{ file }} - <a href="{% url 'edit_file' file_type=file_type file_id=file.id %}">Edit</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'upload_file' file_type=file_type %}">Upload New File</a>
+</body>
+</html>
